@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>المعسكرات - الأكاديمية الوطنية للأمن السيبراني</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Tajawal', sans-serif; }
+    .filter-tab {
+      padding: 0.5rem 1.5rem;
+      border: 1px solid #2563eb;
+      color: #1e40af;
+      border-radius: 9999px;
+      transition: all 0.3s;
+    }
+    .filter-tab:hover {
+      background-color: #2563eb;
+      color: white;
+    }
+    .filter-tab.active {
+      background-color: #2563eb;
+      color: white;
+    }
+    .program-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+    }
+    .program-card:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+<!-- ✅ الهيدر -->
+<header class="bg-white shadow-md sticky top-0 z-50">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <img src="https://media.licdn.com/dms/image/v2/D4D22AQEXwQVS_jNQBg/feedshare-shrink_800/feedshare-shrink_800/0/1691426097824?e=2147483647&v=beta&t=Dd9UM5BqhiORYDJsIZPnU8DafCA8GtuHT9zxzvCRgj8" alt="شعار الأكاديمية" class="h-20 w-25 object-contain">
+    <nav class="space-x-4 space-x-reverse text-sm">
+            <a href="index.html" class="text-gray-600 hover:text-blue-700">الرئيسية</a>
+            <a href="about.html" class="text-gray-600 hover:text-blue-700">عن الأكاديمية</a>
+<a href="bootcamps.html" class="text-gray-600 hover:text-blue-700">المعسكرات</a>
+      <a href="news.html" class="text-gray-600 hover:text-blue-700">الأخبار والفعاليات</a>
+      <a href="partners.html" class="text-gray-600 hover:text-blue-700">شركاؤنا</a>
+    <a href="accreditations.html" class="text-gray-600 hover:text-blue-700">الاعتمادات</a>
+<a href="login.html"class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">تسجيل الدخول</a>
+    </nav>
+  </div>
+</header>
+
+<section class="mt-10 py-12 bg-gray-20">
+  <div class="flex flex-wrap justify-center gap-4 mb-10"> 
+    <button onclick="filterCategory('all')" class="filter-tab active">الكل</button>
+    <button onclick="filterCategory('cyber')" class="filter-tab">الأمن السيبراني</button>
+    <button onclick="filterCategory('data')" class="filter-tab">تحليل البيانات</button>
+    <button onclick="filterCategory('ai')" class="filter-tab">الذكاء الاصطناعي</button>
+  </div>
+
+  <div class="flex justify-center gap-6 mb-10 flex-wrap">
+    <select id="audienceFilter" class="border px-4 py-2 rounded focus:outline-none focus:ring">
+      <option value="all">كل الفئات</option>
+      <option value="كبار">كبار</option>
+      <option value="ناشئون">ناشئون</option>
+    </select>
+    <select id="typeFilter" class="border px-4 py-2 rounded focus:outline-none focus:ring">
+      <option value="all">النوع</option>
+      <option value="معسكر">معسكر</option>
+      <option value="برنامج">برنامج</option>
+      <option value="لقاء">لقاء</option>
+    </select>
+    <select id="durationFilter" class="border px-4 py-2 rounded focus:outline-none focus:ring">
+      <option value="all">المدة</option>
+      <option value="قصيرة">قصيرة (أقل من 3 أسابيع)</option>
+      <option value="متوسطة">متوسطة (3-5 أسابيع)</option>
+      <option value="طويلة">طويلة (أكثر من 5 أسابيع)</option>
+    </select>
+    <select id="modeFilter" class="border px-4 py-2 rounded focus:outline-none focus:ring">
+      <option value="all">طريقة الحضور</option>
+      <option value="حضوري">حضوري</option>
+      <option value="عن بعد">عن بُعد</option>
+    </select>
+    <select id="levelFilter" class="border px-4 py-2 rounded focus:outline-none focus:ring">
+      <option value="all">المستوى</option>
+      <option value="مبتدئ">مبتدئ</option>
+      <option value="متوسط">متوسط</option>
+      <option value="متقدم">متقدم</option>
+    </select>
+  </div>
+<!-- ✅ الشبكة -->
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-6"> 
+
+    <div class="grid md:grid-cols-3 gap-8">
+  <!-- 🔐 الأمن السيبراني -->
+<div class="program-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-700 transition-transform duration-300"
+     data-cat="cyber"
+     data-audience="كبار"
+     data-type="معسكر"
+     data-duration="طويلة"
+     data-mode="عن بعد"
+     data-level="متقدم">
+<a href="program-details.html" class="block">
+
+  <div class="flex items-center justify-between mb-4">
+    <h3 class="text-xl font-bold text-blue-800">معسكر الأمن السيبراني المتقدم</h3>
+    <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">مقاعد محدودة</span>
+  </div>
+
+  <p class="text-sm text-gray-600 mb-2">6 أسابيع - عن بُعد / حضوري</p>
+
+  <div class="flex items-center text-sm gap-3 mb-4">
+    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full">معسكر</span>
+    <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full">كبار</span>
+  </div>
+
+  <a href="register.html" class="block text-center bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition">سجل الآن</a>
+</div>
+
+<div class="program-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-700 transition-transform duration-300"
+     data-cat="cyber"
+     data-audience="ناشئون"
+     data-type="برنامج"
+     data-duration="قصيرة"
+     data-mode="عن بعد"
+     data-level="مبتدئ">
+<a href="program-details.html" class="block">
+
+  <div class="flex items-center justify-between mb-4">
+    <h3 class="text-xl font-bold text-blue-800">برنامج السيبراني للناشئين</h3>
+    <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full">جديد</span>
+  </div>
+
+  <p class="text-sm text-gray-600 mb-2">أسبوعين - أونلاين</p>
+
+  <div class="flex items-center text-sm gap-3 mb-4">
+    <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full">برنامج</span>
+    <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full">ناشئون</span>
+  </div>
+
+  <a href="register.html" class="block text-center bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition">سجل الآن</a>
+</div>
+
+<div class="program-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-700 transition-transform duration-300"
+     data-cat="cyber"
+     data-audience="كبار"
+     data-type="برنامج"
+     data-duration="متوسطة"
+     data-mode="عن بعد"
+     data-level="متوسط">
+<a href="program-details.html" class="block">
+
+  <div class="flex items-center justify-between mb-4">
+    <h3 class="text-xl font-bold text-blue-800">الاستجابة للحوادث السيبرانية</h3>
+    <span class="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded-full">مطلوب بشدة</span>
+  </div>
+
+  <p class="text-sm text-gray-600 mb-2">4 أسابيع - عن بُعد</p>
+
+  <div class="flex items-center text-sm gap-3 mb-4">
+    <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full">برنامج</span>
+    <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full">كبار</span>
+  </div>
+
+  <a href="register.html" class="block text-center bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition">سجل الآن</a>
+</div>
+
+  <!-- 📊 تحليل البيانات -->
+  <div class="program-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-700 transition-transform duration-300" data-cat="data" data-audience="كبار" data-type="معسكر">
+    <a href="program-details.html" class="block">
+
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-xl font-bold text-blue-800">معسكر تحليل البيانات</h3>
+      <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">مقاعد محدودة</span>
+    </div>
+    <p class="text-sm text-gray-600 mb-2">6 أسابيع - حضوري</p>
+    <div class="flex items-center text-sm gap-3 mb-4">
+      <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full">معسكر</span>
+      <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full">كبار</span>
+    </div>
+    <a href="register.html" class="block text-center bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition">سجل الآن</a>
+  </div>
+
+  <div class="program-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-700 transition-transform duration-300" data-cat="data" data-audience="ناشئون" data-type="برنامج">
+    <a href="program-details.html" class="block">
+
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-xl font-bold text-blue-800">بيانات للمبتدئين</h3>
+      <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full">جديد</span>
+    </div>
+    <p class="text-sm text-gray-600 mb-2">3 أسابيع - أونلاين</p>
+    <div class="flex items-center text-sm gap-3 mb-4">
+      <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full">برنامج</span>
+      <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full">ناشئون</span>
+    </div>
+    <a href="register.html" class="block text-center bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition">سجل الآن</a>
+  </div>
+
+  <!-- 🤖 الذكاء الاصطناعي -->
+<div class="program-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-700 transition-transform duration-300"
+     data-cat="ai"
+     data-audience="كبار"
+     data-type="لقاء"
+     data-duration="قصيرة"
+     data-mode="حضوري"
+     data-level="متوسط">
+     <a href="program-details.html" class="block">
+
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-xl font-bold text-blue-800">لقاء الذكاء الاصطناعي</h3>
+      <span class="bg-red-100 text-red-700 text-xs px-2 py-1 rounded-full">مباشر</span>
+    </div>
+    <p class="text-sm text-gray-600 mb-2">لقاء يومي - حضور مباشر</p>
+    <div class="flex items-center text-sm gap-3 mb-4">
+      <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full">لقاء</span>
+      <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full">كبار</span>
+    </div>
+    <a href="register.html" class="block text-center bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition">سجل الآن</a>
+  </div>
+
+<div class="program-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-700 transition-transform duration-300"
+     data-cat="ai"
+     data-audience="ناشئون"
+     data-type="برنامج"
+     data-duration="قصيرة"
+     data-mode="عن بعد"
+     data-level="مبتدئ">
+     <a href="program-details.html" class="block">
+
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-xl font-bold text-blue-800">برنامج AI للناشئين</h3>
+      <span class="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded-full">مسار تدريبي</span>
+    </div>
+    <p class="text-sm text-gray-600 mb-2">أسبوعين - عن بعد</p>
+    <div class="flex items-center text-sm gap-3 mb-4">
+      <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full">برنامج</span>
+      <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full">ناشئون</span>
+    </div>
+    <a href="register.html" class="block text-center bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition">سجل الآن</a>
+  </div>
+
+</div>
+
+
+<!--  سكربت التبويبات والفلاتر -->
+<script>
+  const filters = {
+    audience: document.getElementById("audienceFilter"),
+    type: document.getElementById("typeFilter"),
+    duration: document.getElementById("durationFilter"),
+    mode: document.getElementById("modeFilter"),
+    level: document.getElementById("levelFilter"),
+  };
+
+  const programCards = document.querySelectorAll(".program-card");
+
+  function applyFilters() {
+    programCards.forEach((card) => {
+      const isVisible = Object.entries(filters).every(([key, select]) => {
+        const selected = select.value;
+        const attr = card.getAttribute(`data-${key}`);
+        return selected === "all" || selected === attr;
+      });
+
+      card.style.display = isVisible ? "block" : "none";
+    });
+  }
+
+  // Event listeners
+  Object.values(filters).forEach((filter) => {
+    filter.addEventListener("change", applyFilters);
+  });
+
+  applyFilters(); // Initialize on load
+</script>
+
+
+<!-- ✅ ستايل البطاقة -->
+<style>
+  .card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transform: translateY(-4px);
+  }
+</style>
+<script>
+  function filterCategory(cat) {
+    const allCards = document.querySelectorAll('.program-card');
+    const tabs = document.querySelectorAll('.filter-tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    event.target.classList.add('active');
+
+    allCards.forEach(card => {
+      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
+    });
+  }
+</script>
+
+</body>
+</html>
